@@ -1,0 +1,23 @@
+def is_vowel(letter):
+    return letter in "AEIOUY"
+
+def is_valid_name(name):
+    if len(name) != 9 or name[2] != 'X' or name[6] != '-':
+        return "invalid"
+    
+  
+    if is_vowel(name[2]):
+        return "invalid"
+    
+    
+    digit_pairs = [(0, 1), (3, 4), (4, 5), (7, 8)]
+    
+    for i, j in digit_pairs:
+        if (int(name[i]) + int(name[j])) % 2 != 0:
+            return "invalid"
+    
+    return "valid"
+
+name = input()
+result = is_valid_name(name)
+print(result)
