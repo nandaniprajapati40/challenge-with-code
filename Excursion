@@ -1,0 +1,12 @@
+T = int(input())
+
+for _ in range(T):
+    
+    B, G, S = map(int, input().split())
+
+
+    rooms_for_boys = math.ceil(B / S)
+    rooms_for_girls = math.ceil(G / S)
+
+
+    print(rooms_for_boys + rooms_for_girls)
