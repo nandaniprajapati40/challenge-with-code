@@ -1,0 +1,14 @@
+D = int(input())
+oc, of, od = map(int, input().split())
+cs, cb, cm, cd = map(int, input().split())
+
+# For online taxi
+sum1 = oc + (D - of) * od
+
+# For classical taxi
+sum2 = cb + (D // cs) * cm + D * cd
+
+if sum1 > sum2:
+    print("Classic Taxi")
+else:
+    print("Online Taxi")
