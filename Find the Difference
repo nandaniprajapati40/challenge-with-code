@@ -1,0 +1,16 @@
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        res = 0 
+        # XOR all characters in s
+        for char in s:
+            res ^= ord(char)
+
+        # XOR all characters in t
+        for char in t:
+            res ^= ord(char)
+
+        # Convert result back to character
+        return chr(res)
+
+
+
