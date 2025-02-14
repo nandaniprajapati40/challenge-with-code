@@ -1,0 +1,20 @@
+from typing import List
+
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        stack = []
+        next_greater = {}
+
+        # Traverse nums2 to find the next greater elements
+        for num in nums2:
+            while stack and stack[-1] < num:
+                next_greater[stack.pop()] = num
+            stack.append(num)
+
+        # Elements remaining in stack have no greater element
+        while stack:
+            next_greater[stack.pop()] = -1
+
+        # Retrieve results for nums1 from the hashmap
+        return [next_greater.get(num, -1) for num in nums1]
+
